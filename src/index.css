@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-cream font-sans text-charcoal antialiased; }
+  h1, h2, h3, h4 { @apply font-serif font-medium tracking-tight; }
+  :focus-visible { outline: 2px solid #B5603F; outline-offset: 3px; }
+  ::selection { background: #B5603F; color: #F6F0E6; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+  }
+}
+
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12; }
+  .section { @apply py-20 sm:py-28; }
+  .h-display { @apply font-serif text-5xl leading-[1.02] sm:text-6xl lg:text-7xl; }
+  .h-section { @apply font-serif text-4xl leading-tight sm:text-5xl; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium transition duration-300; }
+  .btn-dark { @apply bg-charcoal text-cream hover:bg-clay; }
+  .btn-clay { @apply bg-clay text-cream hover:bg-charcoal; }
+  .btn-line { @apply border border-charcoal/30 text-charcoal hover:border-charcoal hover:bg-charcoal hover:text-cream; }
+  .btn-line-light { @apply border border-cream/50 text-cream hover:bg-cream hover:text-charcoal; }
+  .field { @apply w-full rounded-xl border border-charcoal/15 bg-cream/60 px-4 py-3 text-sm outline-none transition focus:border-clay focus:bg-white; }
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+@keyframes scrollcue { 0% { transform: translateY(-100%); } 100% { transform: translateY(100%); } }
+.scrollcue { animation: scrollcue 1.8s ease-in-out infinite; }
